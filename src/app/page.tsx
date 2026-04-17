@@ -1,10 +1,38 @@
-export default function Home() {
+import { getHeader, getSiteInfo, getFeaturedServices, getBenefits, getTeam, getReviews, getFAQs } from "@/lib/api";
+import { HeroSection } from "@/components/sections/hero-section";
+import { CTABoxes } from "@/components/sections/cta-boxes";
+import { AboutSection } from "@/components/sections/about-section";
+import { ServicesSection } from "@/components/sections/services-section";
+import { VisitClinicVideo } from "@/components/sections/visit-clinic-video";
+import { WhyChooseUs } from "@/components/sections/why-choose-us";
+import { HowItWorks } from "@/components/sections/how-it-works";
+import { TeamSection } from "@/components/sections/team-section";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { FAQSection } from "@/components/sections/faq-section";
+
+export default async function Home() {
+  const [headerData, siteInfo, servicesData, benefitsData, teamData, reviewsData, faqsData] = await Promise.all([
+    getHeader(),
+    getSiteInfo(),
+    getFeaturedServices(),
+    getBenefits(),
+    getTeam(),
+    getReviews(),
+    getFAQs(),
+  ]);
+
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen text-center px-4">
-      <h1 className="text-4xl font-bold text-primary">Myra Dental</h1>
-      <p className="text-text-muted mt-4">
-        Phòng Khám Nha Khoa Uy Tín — Đang xây dựng...
-      </p>
-    </main>
+    <>
+      <HeroSection hero={headerData.hero} />
+      <CTABoxes contact={siteInfo.contact} />
+      <AboutSection />
+      <ServicesSection data={servicesData} />
+      <VisitClinicVideo />
+      <WhyChooseUs benefits={benefitsData.benefits} />
+      <HowItWorks />
+      <TeamSection team={teamData.team} />
+      <TestimonialsSection reviews={reviewsData.reviews} />
+      <FAQSection faqs={faqsData.faqs} />
+    </>
   );
 }

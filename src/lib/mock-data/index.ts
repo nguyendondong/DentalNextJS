@@ -1,2 +1,2 @@
-// Mock data barrel - populated in later phases
-// Import and re-export mock data modules here as they are created
+export { mockStats } from "./stats";
+export { mockProcessSteps } from "./process";
