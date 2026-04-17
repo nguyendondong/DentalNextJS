@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { blogPosts, getBlogBySlug, getAllBlogSlugs } from "@/lib/mock-data";
@@ -13,11 +14,18 @@ export async function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogBySlug(slug);
+  if (!post) return { title: "Bài Viết" };
   return {
-    title: post ? `${post.title} - Nha Khoa` : "Bài Viết - Nha Khoa",
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: `${post.title} | Myra Dental`,
+      description: post.excerpt,
+      images: [post.imageUrl],
+    },
   };
 }
 

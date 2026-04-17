@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getHeader, getSiteInfo, getFeaturedServices, getBenefits, getTeam, getReviews, getFAQs } from "@/lib/api";
 import { HeroSection } from "@/components/sections/hero-section";
 import { CTABoxes } from "@/components/sections/cta-boxes";
@@ -9,6 +10,17 @@ import { HowItWorks } from "@/components/sections/how-it-works";
 import { TeamSection } from "@/components/sections/team-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FAQSection } from "@/components/sections/faq-section";
+
+export const metadata: Metadata = {
+  title: "Myra Dental - Phòng Khám Nha Khoa Uy Tín",
+  description:
+    "Myra Dental - Phòng khám nha khoa uy tín chuyên niềng răng, trồng răng, bọc răng sứ với công nghệ hiện đại và đội ngũ bác sĩ giàu kinh nghiệm.",
+  openGraph: {
+    title: "Myra Dental - Phòng Khám Nha Khoa Uy Tín",
+    description: "Phòng khám nha khoa uy tín chuyên niềng răng, trồng răng, bọc răng sứ.",
+    images: ["/images/logo.svg"],
+  },
+};
 
 export default async function Home() {
   const [headerData, siteInfo, servicesData, benefitsData, teamData, reviewsData, faqsData] = await Promise.all([

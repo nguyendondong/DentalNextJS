@@ -5,9 +5,16 @@ import { FadeInUp } from "@/components/animations/fade-in-up";
 import { ImageReveal } from "@/components/animations/image-reveal";
 import { ContactForm } from "@/components/forms/contact-form";
 
-export const metadata = {
-  title: "Liên Hệ - Nha Khoa",
-  description: "Liên hệ phòng khám nha khoa để được tư vấn và đặt lịch hẹn.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Liên Hệ",
+  description: "Liên hệ Myra Dental để được tư vấn và đặt lịch hẹn khám nha khoa.",
+  openGraph: {
+    title: "Liên Hệ | Myra Dental",
+    description: "Liên hệ Myra Dental để được tư vấn và đặt lịch hẹn khám nha khoa.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default async function ContactPage() {

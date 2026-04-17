@@ -7,9 +7,16 @@ import { StaggerChildren } from "@/components/animations/stagger-children";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { AppointmentCTA } from "@/components/sections/appointment-cta";
 
-export const metadata = {
-  title: "Dịch Vụ - Nha Khoa",
-  description: "Khám phá các dịch vụ nha khoa chất lượng cao từ chụp X-Quang, trám răng, niềng răng đến trồng răng Implant.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dịch Vụ",
+  description: "Khám phá các dịch vụ nha khoa chất lượng cao tại Myra Dental: chụp X-Quang, trám răng, niềng răng, trồng răng Implant.",
+  openGraph: {
+    title: "Dịch Vụ Nha Khoa | Myra Dental",
+    description: "Khám phá các dịch vụ nha khoa chất lượng cao tại Myra Dental.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default async function ServicesPage() {

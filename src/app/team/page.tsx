@@ -5,9 +5,16 @@ import { TeamCard } from "@/components/ui/team-card";
 import { StaggerChildren } from "@/components/animations/stagger-children";
 import { AppointmentCTA } from "@/components/sections/appointment-cta";
 
-export const metadata = {
-  title: "Đội Ngũ Bác Sĩ - Nha Khoa",
-  description: "Đội ngũ bác sĩ nha khoa giàu kinh nghiệm, tận tâm chăm sóc sức khỏe răng miệng cho bạn.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Đội Ngũ Bác Sĩ",
+  description: "Đội ngũ bác sĩ nha khoa giàu kinh nghiệm tại Myra Dental, tận tâm chăm sóc sức khỏe răng miệng cho bạn.",
+  openGraph: {
+    title: "Đội Ngũ Bác Sĩ | Myra Dental",
+    description: "Đội ngũ bác sĩ nha khoa giàu kinh nghiệm tại Myra Dental.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default function TeamPage() {

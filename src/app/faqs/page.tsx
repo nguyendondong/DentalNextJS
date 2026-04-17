@@ -5,9 +5,16 @@ import { Accordion } from "@/components/ui/accordion";
 import { AppointmentCTA } from "@/components/sections/appointment-cta";
 import { FadeInUp } from "@/components/animations/fade-in-up";
 
-export const metadata = {
-  title: "Câu Hỏi Thường Gặp - Nha Khoa",
-  description: "Giải đáp những thắc mắc phổ biến nhất về dịch vụ và chăm sóc sức khỏe răng miệng tại phòng khám.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Câu Hỏi Thường Gặp",
+  description: "Giải đáp những thắc mắc phổ biến nhất về dịch vụ và chăm sóc sức khỏe răng miệng tại Myra Dental.",
+  openGraph: {
+    title: "Câu Hỏi Thường Gặp | Myra Dental",
+    description: "Giải đáp thắc mắc về dịch vụ nha khoa tại Myra Dental.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default async function FAQsPage() {

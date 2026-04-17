@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -15,13 +16,18 @@ export function generateStaticParams() {
   return getAllTeamIds().map((id) => ({ id: String(id) }));
 }
 
-export async function generateMetadata({ params }: TeamDetailPageProps) {
+export async function generateMetadata({ params }: TeamDetailPageProps): Promise<Metadata> {
   const { id } = await params;
   const member = getTeamMemberById(Number(id));
   if (!member) return { title: "Không tìm thấy bác sĩ" };
   return {
-    title: `${member.name} - Nha Khoa`,
+    title: member.name,
     description: member.bio,
+    openGraph: {
+      title: `${member.name} | Myra Dental`,
+      description: member.bio,
+      images: [member.avatar],
+    },
   };
 }
 

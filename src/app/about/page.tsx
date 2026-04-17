@@ -10,9 +10,16 @@ import { TeamSection } from "@/components/sections/team-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { AppointmentCTA } from "@/components/sections/appointment-cta";
 
-export const metadata = {
-  title: "Giới Thiệu - Nha Khoa",
-  description: "Tìm hiểu về phòng khám nha khoa với đội ngũ bác sĩ giàu kinh nghiệm và dịch vụ chăm sóc răng miệng chất lượng cao.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Giới Thiệu",
+  description: "Tìm hiểu về phòng khám nha khoa Myra Dental với đội ngũ bác sĩ giàu kinh nghiệm và dịch vụ chăm sóc răng miệng chất lượng cao.",
+  openGraph: {
+    title: "Giới Thiệu | Myra Dental",
+    description: "Tìm hiểu về phòng khám nha khoa Myra Dental với đội ngũ bác sĩ giàu kinh nghiệm.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default async function AboutPage() {
