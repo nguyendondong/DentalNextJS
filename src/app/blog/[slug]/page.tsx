@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { blogPosts, getBlogBySlug, getAllBlogSlugs } from "@/lib/mock-data";
@@ -13,20 +14,25 @@ export async function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogBySlug(slug);
+  if (!post) return { title: "Bài Viết" };
   return {
-    title: post ? `${post.title} - Nha Khoa` : "Bài Viết - Nha Khoa",
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: `${post.title} | Myra Dental`,
+      description: post.excerpt,
+      images: [post.imageUrl],
+    },
   };
 }
 
 function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("vi-VN", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
+  const s = dateStr.split("T")[0].split("-");
+  const months = ["tháng 1","tháng 2","tháng 3","tháng 4","tháng 5","tháng 6","tháng 7","tháng 8","tháng 9","tháng 10","tháng 11","tháng 12"];
+  return `${parseInt(s[2])} ${months[parseInt(s[1]) - 1]}, ${s[0]}`;
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {

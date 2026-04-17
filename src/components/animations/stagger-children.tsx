@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface StaggerChildrenProps {
@@ -33,6 +34,15 @@ export function StaggerChildren({
   staggerDelay = 0.15,
   as = "div",
 }: StaggerChildrenProps) {
+  const [mounted, setMounted] = useState(false);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    const Tag = as;
+    return <Tag className={className}>{children}</Tag>;
+  }
+
   const Tag = motion[as] as typeof motion.div;
 
   return (

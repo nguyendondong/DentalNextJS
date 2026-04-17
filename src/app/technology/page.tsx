@@ -6,9 +6,16 @@ import { ImageReveal } from "@/components/animations/image-reveal";
 import { FadeInUp } from "@/components/animations/fade-in-up";
 import Image from "next/image";
 
-export const metadata = {
-  title: "Công Nghệ - Nha Khoa",
-  description: "Phòng khám sử dụng trang thiết bị và công nghệ nha khoa hiện đại nhất để mang lại kết quả tốt nhất.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Công Nghệ",
+  description: "Myra Dental sử dụng trang thiết bị và công nghệ nha khoa hiện đại nhất để mang lại kết quả điều trị tốt nhất.",
+  openGraph: {
+    title: "Công Nghệ Nha Khoa | Myra Dental",
+    description: "Trang thiết bị và công nghệ nha khoa hiện đại tại Myra Dental.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default function TechnologyPage() {

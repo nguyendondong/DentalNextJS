@@ -20,7 +20,7 @@ export function CTABoxes({ contact }: CTABoxesProps) {
                 </svg>
               </div>
               <div>
-                <h3 className="font-semibold text-lg">Cần dịch vụ nha khoa?</h3>
+                <p className="font-semibold text-lg text-white">Cần dịch vụ nha khoa?</p>
                 <p className="text-white/80 text-sm mt-1">Gọi ngay: {contact.phone}</p>
               </div>
             </div>
@@ -36,7 +36,7 @@ export function CTABoxes({ contact }: CTABoxesProps) {
                 </svg>
               </div>
               <div>
-                <h3 className="font-semibold text-lg">Giờ làm việc</h3>
+                <p className="font-semibold text-lg text-white">Giờ làm việc</p>
                 <p className="text-white/80 text-sm mt-1">{contact.openingHours.weekdays.display}</p>
               </div>
             </div>

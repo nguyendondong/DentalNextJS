@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { AppointmentFormData } from "@/lib/types/forms";
 import { submitAppointment } from "@/lib/api/forms";
 
@@ -12,7 +12,7 @@ interface AppointmentFormProps {
 }
 
 export function AppointmentForm({ services }: AppointmentFormProps) {
-  const today = new Date().toISOString().split("T")[0];
+  const [today, setToday] = useState("");
   const [form, setForm] = useState<AppointmentFormData>({
     name: "",
     email: "",
@@ -23,6 +23,12 @@ export function AppointmentForm({ services }: AppointmentFormProps) {
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [responseMsg, setResponseMsg] = useState("");
+
+  // Set min date client-side to avoid SSR/client mismatch
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setToday(new Date().toISOString().split("T")[0]);
+  }, []);
   const [errors, setErrors] = useState<Partial<Record<keyof AppointmentFormData, string>>>({});
 
   function validate(): boolean {

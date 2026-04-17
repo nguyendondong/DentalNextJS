@@ -1,7 +1,7 @@
 import type { ContactFormData, AppointmentFormData, FormResponse } from "@/lib/types/forms";
 
 export async function submitContact(data: ContactFormData): Promise<FormResponse> {
-  // TODO: Replace with real API: POST /landing/contact
+  void data; // TODO: Replace with real API: POST /landing/contact
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return {
     success: true,
@@ -10,7 +10,7 @@ export async function submitContact(data: ContactFormData): Promise<FormResponse
 }
 
 export async function submitAppointment(data: AppointmentFormData): Promise<FormResponse> {
-  // TODO: Replace with real API: POST /landing/appointment
+  void data; // TODO: Replace with real API: POST /landing/appointment
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return {
     success: true,

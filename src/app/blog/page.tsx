@@ -3,9 +3,16 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { BlogCard } from "@/components/ui/blog-card";
 import { BlogSidebar } from "@/components/sections/blog-sidebar";
 
-export const metadata = {
-  title: "Bài Viết - Nha Khoa",
-  description: "Cập nhật những kiến thức và thông tin mới nhất về sức khỏe răng miệng từ đội ngũ chuyên gia.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bài Viết",
+  description: "Cập nhật những kiến thức và thông tin mới nhất về sức khỏe răng miệng từ đội ngũ chuyên gia Myra Dental.",
+  openGraph: {
+    title: "Bài Viết | Myra Dental",
+    description: "Kiến thức và thông tin mới nhất về sức khỏe răng miệng từ chuyên gia Myra Dental.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default function BlogPage() {

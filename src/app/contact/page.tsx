@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getSiteInfo } from "@/lib/api";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -5,14 +6,21 @@ import { FadeInUp } from "@/components/animations/fade-in-up";
 import { ImageReveal } from "@/components/animations/image-reveal";
 import { ContactForm } from "@/components/forms/contact-form";
 
-export const metadata = {
-  title: "Liên Hệ - Nha Khoa",
-  description: "Liên hệ phòng khám nha khoa để được tư vấn và đặt lịch hẹn.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Liên Hệ",
+  description: "Liên hệ Myra Dental để được tư vấn và đặt lịch hẹn khám nha khoa.",
+  openGraph: {
+    title: "Liên Hệ | Myra Dental",
+    description: "Liên hệ Myra Dental để được tư vấn và đặt lịch hẹn khám nha khoa.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default async function ContactPage() {
   const siteInfo = await getSiteInfo();
-  const { contact, social } = siteInfo;
+  const { contact } = siteInfo;
 
   const infoCards = [
     {
@@ -101,10 +109,11 @@ export default async function ContactPage() {
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="w-full lg:w-1/2">
               <ImageReveal className="rounded-2xl overflow-hidden aspect-[4/3]">
-                <img
+                <Image
                   src="/images/contact-us-img.jpg"
                   alt="Liên hệ nha khoa"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </ImageReveal>
             </div>

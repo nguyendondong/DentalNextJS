@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
@@ -14,13 +15,18 @@ export async function generateStaticParams() {
   return getAllServiceSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: ServiceDetailPageProps) {
+export async function generateMetadata({ params }: ServiceDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return { title: "Dịch vụ không tìm thấy" };
   return {
-    title: `${service.name} - Nha Khoa`,
+    title: service.name,
     description: service.description,
+    openGraph: {
+      title: `${service.name} | Myra Dental`,
+      description: service.description,
+      images: [service.imageUrl],
+    },
   };
 }
 

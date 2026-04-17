@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Accordion } from "@/components/ui/accordion";

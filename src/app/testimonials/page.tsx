@@ -5,9 +5,16 @@ import { TestimonialCard } from "@/components/ui/testimonial-card";
 import { AppointmentCTA } from "@/components/sections/appointment-cta";
 import { StaggerChildren } from "@/components/animations/stagger-children";
 
-export const metadata = {
-  title: "Đánh Giá Khách Hàng - Nha Khoa",
-  description: "Cảm nhận từ hàng nghìn bệnh nhân đã tin tưởng sử dụng dịch vụ của phòng khám nha khoa chúng tôi.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Đánh Giá Khách Hàng",
+  description: "Cảm nhận từ hàng nghìn bệnh nhân đã tin tưởng sử dụng dịch vụ nha khoa tại Myra Dental.",
+  openGraph: {
+    title: "Đánh Giá Khách Hàng | Myra Dental",
+    description: "Cảm nhận từ bệnh nhân đã sử dụng dịch vụ tại Myra Dental.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default async function TestimonialsPage() {

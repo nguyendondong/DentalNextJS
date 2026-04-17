@@ -1,7 +1,7 @@
 import { SectionHeader } from "@/components/ui/section-header";
 import { ServiceCard } from "@/components/ui/service-card";
 import { Button } from "@/components/ui/button";
-import { StaggerChildren, staggerItemVariants } from "@/components/animations/stagger-children";
+import { StaggerChildren } from "@/components/animations/stagger-children";
 import { FadeInUp } from "@/components/animations/fade-in-up";
 import type { ServicesResponse } from "@/lib/types";
 

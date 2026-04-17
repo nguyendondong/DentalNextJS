@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { TextReveal } from "@/components/animations/text-reveal";
 import { FadeInUp } from "@/components/animations/fade-in-up";
+import { HeroFloatingIcons } from "@/components/sections/hero-floating-icons";
 import type { HeroData } from "@/lib/types";
 
 interface HeroSectionProps {
@@ -69,6 +70,7 @@ export function HeroSection({ hero }: HeroSectionProps) {
                   sizes="(max-width: 768px) 100vw, 45vw"
                   className="object-contain"
                 />
+                <HeroFloatingIcons />
               </div>
             </FadeInUp>
           </div>

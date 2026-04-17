@@ -6,9 +6,16 @@ import { FadeInUp } from "@/components/animations/fade-in-up";
 import { AppointmentForm } from "@/components/forms/appointment-form";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 
-export const metadata = {
-  title: "Đặt Lịch Hẹn - Nha Khoa",
-  description: "Đặt lịch hẹn khám nha khoa trực tuyến. Đội ngũ bác sĩ sẵn sàng chăm sóc sức khỏe răng miệng cho bạn.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Đặt Lịch Hẹn",
+  description: "Đặt lịch hẹn khám nha khoa trực tuyến tại Myra Dental. Đội ngũ bác sĩ sẵn sàng chăm sóc sức khỏe răng miệng cho bạn.",
+  openGraph: {
+    title: "Đặt Lịch Hẹn | Myra Dental",
+    description: "Đặt lịch hẹn khám nha khoa trực tuyến tại Myra Dental.",
+    images: ["/images/logo.svg"],
+  },
 };
 
 export default async function AppointmentPage() {

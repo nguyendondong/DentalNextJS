@@ -52,7 +52,7 @@ export function VisitClinicVideo() {
               Phòng khám
             </span>
           </FadeInUp>
-          <TextReveal as="h2" className="text-3xl md:text-4xl font-bold text-white mt-3" delay={0.1}>
+          <TextReveal as="p" className="text-3xl md:text-4xl font-bold text-white mt-3" delay={0.1}>
             Chăm Sóc Nha Khoa Toàn Diện Cho Mọi Lứa Tuổi
           </TextReveal>
           <FadeInUp delay={0.25}>

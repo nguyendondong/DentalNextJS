@@ -17,7 +17,7 @@ interface StickyHeaderProps {
 }
 
 export function StickyHeader({ logo, navItems }: StickyHeaderProps) {
-  const [isSticky, setIsSticky] = useState(false);
+  const [, setIsSticky] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -42,22 +42,19 @@ export function StickyHeader({ logo, navItems }: StickyHeaderProps) {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isSticky
-            ? "bg-white/95 backdrop-blur-md shadow-sm"
-            : "bg-transparent"
-        } ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-sm ${isHidden ? "-translate-y-full" : "translate-y-0"}`}
       >
         <div className="container mx-auto max-w-7xl px-4">
           <nav className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
-            <Link href="/" className="relative shrink-0">
+            <Link href="/" className="shrink-0 flex items-center w-[120px] h-10 overflow-hidden">
               <Image
                 src={logo}
                 alt="Myra Dental"
-                width={150}
-                height={48}
-                className="h-10 lg:h-12 w-auto"
+                width={120}
+                height={40}
+                className="w-full h-full object-contain object-left"
+                unoptimized={logo.startsWith("http")}
                 priority
               />
             </Link>
@@ -66,10 +63,10 @@ export function StickyHeader({ logo, navItems }: StickyHeaderProps) {
             <DesktopNav items={navItems} />
 
             {/* CTA */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:block shrink-0">
               <Link
                 href="/appointment"
-                className="inline-flex items-center gap-2 bg-accent text-white rounded-full px-6 py-3 text-sm font-medium uppercase tracking-wide hover:bg-primary transition-colors"
+                className="inline-flex items-center whitespace-nowrap bg-accent text-white rounded-full px-5 py-2.5 text-sm font-semibold uppercase tracking-wide hover:bg-primary transition-colors"
               >
                 Đặt lịch hẹn
               </Link>
@@ -106,12 +103,12 @@ export function StickyHeader({ logo, navItems }: StickyHeaderProps) {
 
 function DesktopNav({ items }: { items: NavItem[] }) {
   return (
-    <ul className="hidden lg:flex items-center gap-1">
+    <ul className="hidden lg:flex items-center gap-0">
       {items.map((item) => (
         <li key={item.href} className="relative group">
           <Link
             href={item.href}
-            className="px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors"
+            className="whitespace-nowrap px-3 py-2 text-sm font-medium text-primary hover:text-accent transition-colors"
           >
             {item.label}
             {item.children && (

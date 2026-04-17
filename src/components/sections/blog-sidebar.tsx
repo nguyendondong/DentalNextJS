@@ -8,12 +8,10 @@ interface BlogSidebarProps {
   tags: string[];
 }
 
+// Deterministic - same output on server and client
 function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("vi-VN", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
+  const s = dateStr.split("T")[0].split("-");
+  return `${s[2]}/${s[1]}/${s[0]}`;
 }
 
 export function BlogSidebar({ categories, recentPosts, tags }: BlogSidebarProps) {
