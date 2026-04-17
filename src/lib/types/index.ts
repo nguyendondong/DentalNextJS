@@ -11,3 +11,4 @@ export type {
   BlogPost, BlogDetail,
   GalleryImage, TechnologyItem,
 } from "./content";
+export type { ContactFormData, AppointmentFormData, FormResponse } from "./forms";
