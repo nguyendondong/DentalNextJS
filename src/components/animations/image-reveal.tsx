@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface ImageRevealProps {
@@ -16,14 +15,6 @@ export function ImageReveal({
   delay = 0,
   direction = "left",
 }: ImageRevealProps) {
-  const [mounted, setMounted] = useState(false);
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) {
-    return <div className={`relative overflow-hidden ${className ?? ""}`}>{children}</div>;
-  }
-
   const originX = direction === "left" ? "left" : "right";
 
   return (

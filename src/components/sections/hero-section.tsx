@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ hero }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-secondary py-16 lg:py-24">
+    <section className="relative overflow-hidden bg-secondary py-30 lg:py-24">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Content */}

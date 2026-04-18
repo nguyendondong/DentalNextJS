@@ -104,7 +104,7 @@ function FooterAbout({ logo, description }: { logo: string; description: string 
   return (
     <div>
       <Link href="/" className="inline-block mb-6">
-        <Image src={logo} alt="Myra Dental" width={150} height={48} className="h-10 w-auto brightness-0 invert" />
+        <Image src={logo} alt="Myra Dental" width={150} height={48} className="h-10 w-auto" unoptimized={logo.startsWith("http")} />
       </Link>
       <p className="text-white/70 text-sm leading-relaxed">{description}</p>
     </div>

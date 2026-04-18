@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface TextRevealProps {
@@ -35,14 +34,6 @@ export function TextReveal({
   className,
   delay = 0,
 }: TextRevealProps) {
-  const [mounted, setMounted] = useState(false);
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) {
-    return <Tag className={className}>{children}</Tag>;
-  }
-
   const words = children.split(" ");
 
   return (
