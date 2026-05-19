@@ -23,7 +23,7 @@ export default async function AppointmentPage() {
 
   const services = mockServices.map((s) => ({
     name: s.name,
-    slug: s.slug ?? String(s.id),
+    slug: String(s.id),
   }));
 
   return (

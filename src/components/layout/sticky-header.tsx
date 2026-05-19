@@ -47,13 +47,13 @@ export function StickyHeader({ logo, navItems }: StickyHeaderProps) {
         <div className="container mx-auto max-w-7xl px-4">
           <nav className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
-            <Link href="/" className="shrink-0 flex items-center w-[120px] h-10 overflow-hidden">
+            <Link href="/" className="shrink-0 relative w-[120px] h-10">
               <Image
                 src={logo}
                 alt="Myra Dental"
-                width={120}
-                height={40}
-                className="w-full h-full object-contain object-left"
+                fill
+                sizes="120px"
+                className="object-contain object-left"
                 unoptimized={logo.startsWith("http")}
                 priority
               />

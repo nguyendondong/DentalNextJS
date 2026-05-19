@@ -1,12 +1,10 @@
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL ||
-  "https://api-dev.drtrungnguyenvo.com/api/v1";
+import { buildApiUrl } from "./api";
 
 export async function fetchAPI<T>(
   endpoint: string,
   revalidate = 3600
 ): Promise<T> {
-  const url = `${API_BASE}${endpoint}`;
+  const url = buildApiUrl(endpoint);
 
   try {
     const res = await fetch(url, {

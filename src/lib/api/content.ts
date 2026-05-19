@@ -1,14 +1,15 @@
 import { fetchAPI } from "./client";
+import { API_ENDPOINTS } from "./api";
 import type { ReviewsResponse, FAQsResponse, BenefitsResponse } from "@/lib/types";
 
 export async function getReviews(): Promise<ReviewsResponse> {
-  return fetchAPI<ReviewsResponse>("/landing/content?include=reviews");
+  return fetchAPI<ReviewsResponse>(API_ENDPOINTS.LANDING.CONTENT("reviews"));
 }
 
 export async function getFAQs(): Promise<FAQsResponse> {
-  return fetchAPI<FAQsResponse>("/landing/content?include=faqs");
+  return fetchAPI<FAQsResponse>(API_ENDPOINTS.LANDING.CONTENT("faqs"));
 }
 
 export async function getBenefits(): Promise<BenefitsResponse> {
-  return fetchAPI<BenefitsResponse>("/landing/about?include=benefits");
+  return fetchAPI<BenefitsResponse>(API_ENDPOINTS.LANDING.ABOUT("benefits"));
 }
