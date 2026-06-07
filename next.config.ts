@@ -13,11 +13,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "r2-stg.drtrungnguyenvo.com",
+        hostname: "r2-staging.drtrungnguyenvo.com",
       },
       {
         protocol: "https",
-        hostname: "api-stg.drtrungnguyenvo.com",
+        hostname: "api-staging.drtrungnguyenvo.com",
       },
       {
         protocol: "https",
