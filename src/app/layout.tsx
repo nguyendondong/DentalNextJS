@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ContactWidget } from "@/components/ui/contact-widget";
 import { getSiteInfo } from "@/lib/api";
 import "./globals.css";
 
@@ -69,6 +70,11 @@ export default async function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ContactWidget
+          phone={contact.phone}
+          zaloUrl={social.zalo}
+          messengerUrl={social.facebook ? `https://m.me/${social.facebook.split("/").filter(Boolean).pop()}` : "https://m.me/myradental"}
+        />
       </body>
     </html>
   );
